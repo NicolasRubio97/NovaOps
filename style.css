@@ -1,0 +1,519 @@
+/* Reseteo básico */
+* {
+  background-color: black;  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+/* === CSS GLOBAL PARA TODAS LAS SECCIONES === */
+section {
+  margin: 40px 0;       /* separación moderada */
+  padding: 20px 0;
+}
+
+section h1, section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;  /* pequeño espacio debajo */
+}
+
+section p {
+  margin: 0 auto;       /* elimina márgenes extra */
+  line-height: 1.6;     /* para buena lectura */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #000; /* Barra negra */
+  color: #fff; /* Texto blanco */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* espacio entre logo y texto */
+}
+
+.navbar-logo {
+  height: 40px;  /* puedes subir a 80px si quieres más grande */
+  width: auto;   /* mantiene proporción */
+}
+.brand-name {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00bcd4; /* Hover */
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Debajo del enlace principal */
+  left: 0;
+  background-color: #111;
+  list-style: none;
+  min-width: 200px;
+  border: 1px solid #333;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #222;
+  color: #00bcd4;
+}
+
+/* Mostrar menú al pasar el mouse */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Para que las secciones tengan espacio */
+section {
+  height: 60vh;
+  padding-top: 100px; /* Para que no se tape con la navbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+
+}
+/* ==== SLIDER ==== */
+.slider {
+  margin: auto;
+  margin-top: 0%;
+  width: 80%;
+  height: 500px; /* altura fija */
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  width: 300%; /* 3 imágenes */
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cubre el espacio sin franjas negras */
+  display: block;
+}
+
+
+/* Indicadores */
+.indicators {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 10;
+  background: none;   /* No permite fondos en la barra*/
+}
+
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.3); /* semi-transparente por defecto */
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(4px); /* efecto difuminado detrás */
+  transition: background 0.5s ease, transform 0.3s ease;
+}
+
+.dot:hover {
+  transform: scale(1.2);
+}
+
+
+/* Secciones demo */
+.section {
+  height: 100vh;
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slider {
+    height: 40vh;
+  }
+}
+
+/* === SECCIÓN QUIÉNES SOMOS === */
+.quienes-somos {
+  margin-top: 0%;
+ display: flex;
+  flex-direction: column;   /* ✅ título arriba, tarjetas abajo */
+  align-items: center;      /* ✅ todo centrado */
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* ✅ Contenido centrado y con fondo suave */
+
+.contenido-parrafo{ 
+  background: #555;
+   padding: 30px;
+  border-radius: 12px;
+  color :white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  line-height: 1.8;
+  font-size: 18px;
+  }
+
+/* ✅ Título con la misma línea decorativa */
+.quienes-somos .titulo-seccion {
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+}
+
+.quienes-somos .titulo-seccion::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #fff;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* === SECCIÓN GENERAL === */
+.nuestros-servicios {
+  margin-top: 0%;
+  display: flex;
+  flex-direction: column;   /* ✅ título arriba, tarjetas abajo */
+  align-items: center;      /* ✅ todo centrado */
+  max-width: 1200px;
+  margin: 0% auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* ✅ TÍTULO CENTRADO ARRIBA */
+.titulo-seccion {
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;  /* espacio con las tarjetas */
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  position: relative;
+}
+
+/* ✅ Línea decorativa centrada */
+.titulo-seccion::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #fff;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* === TARJETAS EN FILA === */
+.info-cards {
+  display: flex;
+  justify-content: center; /* ✅ centra horizontalmente */
+  gap: 30px;
+  flex-wrap: nowrap;       /* ❌ evita que se bajen */
+}
+
+/* === TARJETA === */
+.card {
+  width: 30%;               
+  background: #555 !important;
+  border-radius: 12px;
+  padding: 30px;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card h2,
+.card ul,
+.card li {
+  background: transparent ;
+  color: #fff ;
+  list-style: none;
+  margin: 8px 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+/* RESPONSIVE: en pantallas pequeñas se apilan */
+@media (max-width: 1000px) {
+  .info-cards {
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 90%;
+  }
+}
+/* === SECCIÓN CONTACTO === */
+.contacto {
+   display: flex;
+  flex-direction: column;   /* ✅ título arriba, tarjetas abajo */
+  align-items: center;      /* ✅ todo centrado */
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 40px 20px;
+  text-align: center;
+  background: transparent;
+  
+ }
+
+/* Card con fondo gris */
+.card-contacto {
+  width: 90%;               
+  background: #555 !important;
+  border-radius: 12px;
+  padding: 30px;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+  
+}
+
+/* Texto superior de la card */
+.card-contacto p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  background: transparent;
+}
+
+/* Redes sociales */
+.redes-sociales {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  background: transparent;
+}
+.redes-sociales span,i {
+   background: transparent !important;
+}
+
+
+/* Cada enlace */
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  background: rgba(0,0,0,0.2);
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  background: transparent !important;
+}
+
+.social-link:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Iconos */
+.social-link img {
+  width: 24px;
+  height: 24px;
+  background: transparent !important;
+}
+/* Títulos de todas las secciones */
+section h1,
+section h2 {
+  text-align: center;      /* centra todos los títulos */
+  font-size: 2rem;         /* tamaño uniforme */
+  font-weight: bold;       /* negrita */
+  color: #fff;             /* color blanco */
+  margin-bottom: 30px;     /* espacio entre título y contenido */
+  letter-spacing: 1px;     /* opcional: más separación entre letras */
+  text-transform: uppercase; /* opcional: todo en mayúsculas */
+ background: transparent !important;
+}
+/* BOTÓN FLOTANTE WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 28px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background: #20ba5a;
+}
+/* BOTÓN FLOTANTE DEL CHATBOT */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 90px; /* encima del WhatsApp */
+  right: 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+
+}
+
+/* CONTENEDOR DEL CHATBOT */
+.chatbot-container {
+  position: fixed;
+  bottom: 160px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background: #f8f9fa !important;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: none; /* oculto por defecto */
+  flex-direction: column;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  z-index: 1002;
+}
+
+/* ENCABEZADO DEL CHATBOT */
+.chatbot-header {
+  background: black;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* CUERPO DEL CHATBOT */
+.chatbot-body,p,strong {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+  background-color: white;
+  
+}
+
+/* PIE DEL CHATBOT */
+.chatbot-footer {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chatbot-footer input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  outline: none;
+}
+
+.chatbot-footer button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  
+}
+.Mensaje{
+  background: white;
+}
+
+.chatbot-close, .chatbot-clean {
+  cursor: pointer;
+  font-size: 16px;
+  background: transparent;
+}
